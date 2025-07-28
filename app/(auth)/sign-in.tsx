@@ -2,7 +2,9 @@ import {View, Text, Button, Alert} from 'react-native'
 import React, {useState} from 'react'
 import {Link, router} from "expo-router";
 import CustomInput from "@/components/CustomInput";
+import {signIn} from "@/lib/appwrite";
 import CustomButton from "@/components/CustomButton";
+import * as Sentry from "@sentry/react-native";
 
 const SignIn = () => {
 
@@ -10,15 +12,19 @@ const SignIn = () => {
     const [form, setForm] = useState({email: '', password: ''})
 
     const submit = async ()=> {
-        if(!form.email || !form.password) return Alert.alert("Error","Please enter a valid email or passord")
+
+        const {email, password} = form
+
+        if(!email || !password) return Alert.alert("Error","Please enter a valid email or passord")
 
         setIsSubmitting(true)
 
         try{
-            Alert.alert("Success","User signed in successfully")
+            await signIn({email, password})
             router.replace('/')
         }catch (error: any) {
             Alert.alert("Error",error.message)
+            Sentry.captureException(error)
         } finally {
             setIsSubmitting(false)
         }
