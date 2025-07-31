@@ -1,8 +1,9 @@
 import {SplashScreen, Stack} from "expo-router";
 import './global.css'
-import {useFonts} from 'expo-font';
+import {isLoading, useFonts} from 'expo-font';
 import {useEffect}  from "react";
 import * as Sentry from '@sentry/react-native';
+import useAuthStore from "@/store/auth.store";
 
 Sentry.init({
   dsn: 'https://ba55d6f832a307af5e01d0a3be464248@o4509447648509952.ingest.us.sentry.io/4509748520550400',
@@ -21,6 +22,9 @@ Sentry.init({
 });
 
 export default Sentry.wrap(function RootLayout() {
+
+  const {isLoading, fetchAuthenticatedUser} = useAuthStore()
+
   const [fontsLoaded, error] = useFonts({
     "QuickSand-Bold": require("../assets/fonts/Quicksand-Bold.ttf"),
     "QuickSand-Medium": require("../assets/fonts/Quicksand-Medium.ttf"),
@@ -29,18 +33,17 @@ export default Sentry.wrap(function RootLayout() {
     "QuickSand-Light": require("../assets/fonts/Quicksand-Light.ttf")
   })
 
-  // const [fontsLoaded, error] = useFonts({
-  //   "QuickSand-Bold": require('../assets/fonts/Quicksand-Bold.ttf'),
-  //   "QuickSand-Medium": require('../assets/fonts/Quicksand-Medium.ttf'),
-  //   "QuickSand-Regular": require('../assets/fonts/Quicksand-Regular.ttf'),
-  //   "QuickSand-SemiBold": require('../assets/fonts/Quicksand-SemiBold.ttf'),
-  //   "QuickSand-Light": require('../assets/fonts/Quicksand-Light.ttf'),
-  // });
 
   useEffect(() => {
     if(error) throw error;
     if(fontsLoaded) SplashScreen.hideAsync()
   }, [fontsLoaded, error]);
+
+  useEffect(() => {
+    fetchAuthenticatedUser()
+  }, []);
+
+  if(!fontsLoaded || isLoading) return null
 
   return <Stack screenOptions={{headerShown: false}} />;
 });
