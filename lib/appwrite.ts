@@ -69,7 +69,6 @@ export const getCurrentUser = async () => {
 
         return currentUser.documents[0];
     } catch (e) {
-        console.log(e);
         throw new Error(e as string);
     }
 }
@@ -93,6 +92,7 @@ export const getMenu = async ({ category, query }: GetMenuParams) => {
     }
 }
 
+
 export const getCategories = async () => {
     try {
         const categories = await databases.listDocuments(
@@ -101,6 +101,14 @@ export const getCategories = async () => {
         )
 
         return categories.documents;
+    } catch (e) {
+        throw new Error(e as string);
+    }
+}
+
+export const signOut = async () => {
+    try {
+        return await account.deleteSession('current');
     } catch (e) {
         throw new Error(e as string);
     }

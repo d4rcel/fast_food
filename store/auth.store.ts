@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import {User} from "@/type";
 import * as async_hooks from "node:async_hooks";
-import {getCurrentUser} from "@/lib/appwrite";
+import {getCurrentUser, signOut} from "@/lib/appwrite";
 
 type AuthStore = {
     isAuthenticated: boolean,
@@ -13,6 +13,7 @@ type AuthStore = {
     setLoading: (loading: boolean) => void
 
     fetchAuthenticatedUser: () => Promise<void>
+    signOut: () => Promise<void>
 }
 
 const useAuthStore = create<AuthStore>((set) => ({
@@ -34,11 +35,23 @@ const useAuthStore = create<AuthStore>((set) => ({
           else set({isAuthenticated: false, user: null})
 
       }catch (e) {
-          console.log('fetchAuthenticatedUser error:', e)
           set({isAuthenticated: false, user: null})
       } finally {
           set({isLoading: false})
       }
+    },
+
+    signOut: async () => {
+        set({isLoading: true})
+
+        try {
+            await signOut()
+            set({isAuthenticated: false, user: null})
+        } catch (e) {
+            console.log('signOut error:', e)
+        } finally {
+            set({isLoading: false})
+        }
     }
 }))
 
