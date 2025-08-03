@@ -1,4 +1,4 @@
-import {View, Text, SafeAreaView, Image, TouchableOpacity, ScrollView} from 'react-native'
+import {View, Text, SafeAreaView, Image, TouchableOpacity, ScrollView, Alert} from 'react-native'
 import React from 'react'
 import useAuthStore from "@/store/auth.store";
 import {images} from "@/constants";
@@ -9,13 +9,28 @@ import CustomHeader from "@/components/CustomHeader";
 const Profile = () => {
     const {user, signOut} = useAuthStore()
 
-    const onLogout = async () => {
-        try {
-            await signOut()
-            router.replace('/sign-in')
-        }catch (e) {
-            console.log("Something went wrong...", e)
-        }
+    const onLogout = () => {
+        Alert.alert(
+            "Logout",
+            "Are you sure you want to logout?",
+            [
+                {
+                    text: "Cancel",
+                    style: "cancel"
+                },
+                {
+                    text: "Continue",
+                    onPress: async () => {
+                        try {
+                            await signOut()
+                            router.replace('/sign-in')
+                        } catch (e) {
+                            console.log("Something went wrong...", e)
+                        }
+                    }
+                }
+            ]
+        );
     }
 
     return (
