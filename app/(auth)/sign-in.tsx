@@ -5,8 +5,11 @@ import CustomInput from "@/components/CustomInput";
 import {signIn} from "@/lib/appwrite";
 import CustomButton from "@/components/CustomButton";
 import * as Sentry from "@sentry/react-native";
+import useAuthStore from "@/store/auth.store";
 
 const SignIn = () => {
+
+    const {fetchAuthenticatedUser} = useAuthStore()
 
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [form, setForm] = useState({email: '', password: ''})
@@ -21,8 +24,10 @@ const SignIn = () => {
 
         try{
             await signIn({email, password})
+            await fetchAuthenticatedUser()
             router.replace('/')
         }catch (error: any) {
+            console.log("VENTURE ::: ", error)
             Alert.alert("Error",error.message)
             Sentry.captureException(error)
         } finally {
@@ -66,4 +71,5 @@ const SignIn = () => {
         </View>
     )
 }
+
 export default SignIn
