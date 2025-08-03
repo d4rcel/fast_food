@@ -136,4 +136,8 @@
     .small-bold {
         @apply text-xs font-quicksand-bold;
     }
+
+    .bg-primary-opacity-5 {
+        @apply bg-primary/5;
+    }
 }
