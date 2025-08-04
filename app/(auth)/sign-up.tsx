@@ -6,7 +6,10 @@ import {createUser} from "@/lib/appwrite";
 import CustomButton from "@/components/CustomButton";
 
 
+import useAuthStore from "@/store/auth.store";
+
 const SignUp = () => {
+    const { fetchAuthenticatedUser } = useAuthStore();
 
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [form, setForm] = useState({name:'', email: '', password: ''})
@@ -20,6 +23,7 @@ const SignUp = () => {
 
         try{
             await createUser({email, password, name})
+            await fetchAuthenticatedUser();
 
             router.replace('/')
         }catch (error: any) {
