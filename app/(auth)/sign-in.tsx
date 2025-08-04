@@ -27,7 +27,6 @@ const SignIn = () => {
             await fetchAuthenticatedUser()
             router.replace('/')
         }catch (error: any) {
-            console.log("VENTURE ::: ", error)
             Alert.alert("Error",error.message)
             Sentry.captureException(error)
         } finally {
