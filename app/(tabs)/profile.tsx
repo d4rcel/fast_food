@@ -38,7 +38,7 @@ const Profile = () => {
             <ScrollView
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={{
-                    paddingBottom: 100 // Add bottom padding for better scrolling experience
+                    paddingBottom: 180 // Add bottom padding for better scrolling experience
                 }}
             >
                 <View className={'w-full h-full items-center px-5 pt-5'}>
