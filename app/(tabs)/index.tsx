@@ -7,6 +7,7 @@ import cn from 'clsx'
 
 import CartButton from "@/components/CartButton";
 import useAuthStore from "@/store/auth.store";
+import {router} from "expo-router";
 
 export default function Index() {
 
@@ -25,6 +26,7 @@ export default function Index() {
                     return (
                         <View>
                             <Pressable
+                                onPress={() => router.push({pathname: "/search", params: {query: item.category}})}
                                 className={cn("offer-card", isEven ? 'flex-row-reverse' : 'flex-row')}
                                 style={{ backgroundColor: item.color }}
                                 android_ripple={{ color: "#fffff22"}}
@@ -45,6 +47,7 @@ export default function Index() {
                                                 resizeMode="contain"
                                                 tintColor="#ffffff"
                                             />
+
                                         </View>
                                     </Fragment>
                                 )}

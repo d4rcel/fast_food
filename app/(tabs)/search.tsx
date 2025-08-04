@@ -1,4 +1,4 @@
-import {Button, FlatList, Text, View} from 'react-native'
+import {FlatList, Text, View} from 'react-native'
 import {SafeAreaView} from "react-native-safe-area-context";
 import useAppwrite from "@/lib/useAppwrite";
 import {getCategories, getMenu} from "@/lib/appwrite";
@@ -20,8 +20,10 @@ const Search = () => {
     const { data: categories } = useAppwrite({ fn: getCategories });
 
     useEffect(() => {
-        refetch({ category, query, limit: 6})
-    }, [category, query]);
+        if(categories && categories.length > 0) {
+            refetch({ category, query, limit: 6})
+        }
+    }, [category, query, categories]);
 
     return (
         <SafeAreaView className="bg-white h-full">
@@ -60,8 +62,6 @@ const Search = () => {
                 )}
                 ListEmptyComponent={() => !loading && <Text>No results</Text>}
             />
-
-            {/*<Button title={"Seed"} onPress={() =>seed().catch((error) => console.log("Failed to seed the datatbase", error))} />*/}
 
         </SafeAreaView>
     )
