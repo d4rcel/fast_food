@@ -19,6 +19,7 @@ Une application mobile multiplateforme (iOS et Android) pour un service de resta
 *   **Styling :** Tailwind CSS avec NativeWind
 *   **Backend :** Appwrite (Base de données, Authentification)
 *   **Gestion d'état :** Zustand
+*   **Monitoring et gestion des logs :** Sentry
 
 ## 📋 Prérequis
 
