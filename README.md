@@ -67,7 +67,7 @@ Avant de commencer, assurez-vous d'avoir installé les outils suivants :
 Vous pouvez lancer l'application de plusieurs manières :
 
 *   **Sur un appareil mobile (recommandé) :**
-    *   **NB:** Votre ordinateur et votre smartphone doivent être connectés au même résaeu local
+*   **NB:** Votre ordinateur et votre smartphone doivent être connectés au même résaeu local
     1.  Téléchargez l'application **[Expo Go](https://expo.dev/go)** sur votre téléphone (iOS ou Android).
     2.  Créez un compte Expo si vous n'en avez pas.
     3.  Sur Android, scannez le QR code affiché dans le terminal avec l'application Expo Go.
