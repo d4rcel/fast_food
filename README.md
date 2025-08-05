@@ -1,50 +1,79 @@
-# Welcome to your Expo app 👋
+# Fast Food - Application Mobile de Commande
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Une application mobile multiplateforme (iOS et Android) pour un service de restauration rapide, permettant aux utilisateurs de parcourir le menu, passer des commandes et gérer leur compte.
 
-## Get started
+## 🚀 Fonctionnalités
 
-1. Install dependencies
+*   **Authentification :** Inscription et connexion des utilisateurs.
+*   **Navigation Intelligente :** Interface à onglets pour une navigation simple et efficace.
+*   **Catalogue de Produits :** Affichage des articles du menu avec des filtres par catégorie.
+*   **Recherche :** Fonction de recherche pour trouver rapidement des produits.
+*   **Panier d'Achat :** Ajout, modification et suppression d'articles dans le panier.
+*   **Profil Utilisateur :** Consultation et gestion des informations du compte.
 
-   ```bash
-   npm install
-   ```
+## 🛠️ Technologies et Outils
 
-2. Start the app
+*   **Framework :** React Native (avec Expo)
+*   **Langage :** TypeScript
+*   **Routing :** Expo Router (navigation basée sur les fichiers)
+*   **Styling :** Tailwind CSS avec NativeWind
+*   **Backend :** Appwrite (Base de données, Authentification)
+*   **Gestion d'état :** Zustand
 
-   ```bash
-   npx expo start
-   ```
+## 📋 Prérequis
 
-In the output, you'll find options to open the app in a
+Avant de commencer, assurez-vous d'avoir installé les outils suivants :
+*   [Node.js](https://nodejs.org/) (version LTS recommandée)
+*   [Expo CLI](https://docs.expo.dev/get-started/installation/)
+*   Un compte [Appwrite](https://appwrite.io/) pour la configuration du backend.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## ⚙️ Installation et Configuration
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+1.  **Cloner le dépôt :**
+    ```bash
+    git clone https://github.com/d4rcel/fast_food.git
+    cd fast_food
+    ```
 
-## Get a fresh project
+2.  **Installer les dépendances :**
+    ```bash
+    npm install
+    ```
 
-When you're ready, run:
+3.  **Configurer les variables d'environnement :**
+    Créez un fichier `.env` à la racine du projet et ajoutez les variables suivantes. Vous pouvez trouver ces informations dans le tableau de bord de votre projet Appwrite.
 
-```bash
-npm run reset-project
+    ```
+    EXPO_PUBLIC_APPWRITE_ENDPOINT=VOTRE_ENDPOINT_APPWRITE
+    EXPO_PUBLIC_APPWRITE_PROJECT_ID=VOTRE_ID_PROJET_APPWRITE
+    ```
+
+4.  **Démarrer le serveur de développement :**
+    ```bash
+    npx expo start
+    ```
+    Suivez les instructions dans le terminal pour lancer l'application sur un simulateur iOS, un émulateur Android ou dans votre navigateur web.
+
+
+## 📂 Structure du Projet
+
+```
+fast_food/
+├── app/                # Fichiers de routing et écrans
+│   ├── (auth)/         # Groupe de routes pour l'authentification
+│   └── (tabs)/         # Groupe de routes pour la navigation principale
+├── assets/             # Polices, icônes et images
+├── components/         # Composants React réutilisables
+├── constants/          # Constantes globales
+├── lib/                # Logique métier (Appwrite, hooks)
+├── store/              # Gestion d'état (Zustand)
+└── ...                 # Fichiers de configuration
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## 🤝 Contribution
 
-## Learn more
+Les contributions sont les bienvenues ! Si vous souhaitez améliorer ce projet, n'hésitez pas à forker le dépôt et à créer une Pull Request.
 
-To learn more about developing your project with Expo, look at the following resources:
+## 📄 Licence
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Ce projet est sous licence MIT.
