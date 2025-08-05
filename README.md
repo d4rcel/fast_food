@@ -72,11 +72,10 @@ Vous pouvez lancer l'application de plusieurs manières :
     2.  Créez un compte Expo si vous n'en avez pas.
     3.  Sur Android, scannez le QR code affiché dans le terminal avec l'application Expo Go.
     4.  Sur IOS, scannez le code QR affiché dans le terminal avec le scanner de code QR dans le centre de contrôle.
-    
-    ```
-      Sur IOS, après avoir installé Expo GO, aller dans Paramètres -> Applications -> Expo Go et donner l'accès au Réseau local
-      Si vous êtes connectés à un VPN, désactivez-le
-    ```
+
+*   **Sur IOS, après avoir installé Expo GO, aller dans Paramètres -> Applications -> Expo Go et donner l'accès au Réseau local**
+*   **Si vous êtes connectés à un VPN, désactivez-le**
+
 
 *   **Sur un simulateur/émulateur :**
     *   Suivez les instructions dans le terminal (`a` pour Android, `i` pour iOS) pour lancer l'application sur un simulateur local.
