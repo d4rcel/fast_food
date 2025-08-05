@@ -24,8 +24,10 @@ Une application mobile multiplateforme (iOS et Android) pour un service de resta
 
 Avant de commencer, assurez-vous d'avoir installé les outils suivants :
 *   [Node.js](https://nodejs.org/) (version LTS recommandée)
-*   [Expo CLI](https://docs.expo.dev/get-started/installation/)
-*   Un compte [Appwrite](https://appwrite.io/) pour la configuration du backend.
+
+[//]: # (*   [Expo CLI]&#40;https://docs.expo.dev/get-started/installation/&#41;)
+
+[//]: # (*   Un compte [Appwrite]&#40;https://appwrite.io/&#41; pour la configuration du backend.)
 
 ## ⚙️ Installation et Configuration
 
@@ -40,15 +42,20 @@ Avant de commencer, assurez-vous d'avoir installé les outils suivants :
     npm install
     ```
 
-3.  **Configurer les variables d'environnement :**
-    Créez un fichier `.env` à la racine du projet et ajoutez les variables suivantes. Vous pouvez trouver ces informations dans le tableau de bord de votre projet Appwrite.
+[//]: # (3.  **Configurer les variables d'environnement :**)
 
-    ```
-    EXPO_PUBLIC_APPWRITE_ENDPOINT=VOTRE_ENDPOINT_APPWRITE
-    EXPO_PUBLIC_APPWRITE_PROJECT_ID=VOTRE_ID_PROJET_APPWRITE
-    ```
+[//]: # (    Créez un fichier `.env` à la racine du projet et ajoutez les variables suivantes. Vous pouvez trouver ces informations dans le tableau de bord de votre projet Appwrite.)
 
-4.  **Démarrer le serveur de développement :**
+[//]: # ()
+[//]: # (    ```)
+
+[//]: # (    EXPO_PUBLIC_APPWRITE_ENDPOINT=VOTRE_ENDPOINT_APPWRITE)
+
+[//]: # (    EXPO_PUBLIC_APPWRITE_PROJECT_ID=VOTRE_ID_PROJET_APPWRITE)
+
+[//]: # (    ```)
+
+3.  **Démarrer le serveur de développement :**
     ```bash
     npx expo start
     ```
